@@ -1,3 +1,3 @@
-import './globals.css';
+import './globals.css';import {LanguageProvider} from '@/components/LanguageProvider';
 export const metadata={title:'Social Media OS',description:'Private social media workspace'};
-export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body>{children}</body></html>}
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="pt-BR"><body><LanguageProvider>{children}</LanguageProvider></body></html>}
