@@ -64,3 +64,13 @@
 .client-workspace .folder-button.month{color:#a3b19b}
 .client-workspace .folder-button.selected{background:#303c29;color:var(--lime)}
 .client-workspace .folder-button:hover{background:#273222;color:#d6edc8}
+
+/* Client workspace: neutral text balance after design review */
+.client-workspace .panel h2{color:#f3f3ee}
+.client-workspace .panel h3,.client-workspace .panel h4{color:#e8ebe5}
+.client-workspace .panel strong{color:#b8d79f}
+.client-workspace .panel p{color:#e3e5df}
+.client-workspace .panel small{color:#b6bcb1}
+.client-workspace .panel .field label{color:#b8d79f}
+.client-workspace .panel .field textarea,.client-workspace .panel .field input{color:#f0f1ed}
+.client-workspace .panel .planning-entry p{color:#e3e5df}
