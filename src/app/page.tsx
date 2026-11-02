@@ -1,2 +1,5 @@
-'use client';import {useState} from 'react';import AuthGate from '@/components/AuthGate';import {db} from '@/lib/supabase';
-export default function Settings(){const[name,setName]=useState('');const[message,setMessage]=useState('');async function save(){const {data:{user}}=await db().auth.getUser();if(!user)return;const {error}=await db().from('profiles').upsert({id:user.id,display_name:name});setMessage(error?error.message:'Saved')}return <AuthGate><h1>Settings</h1><div className="panel" style={{maxWidth:560}}><h2>Profile</h2><div className="field"><label>Display name</label><input value={name} onChange={e=>setName(e.target.value)}/></div><button className="button" onClick={save}>Save</button>{message&&<p>{message}</p>}<div className="divider"/><p>Password recovery is available from the sign-in page.</p></div></AuthGate>}
+import { redirect } from 'next/navigation';
+
+export default function HomePage() {
+  redirect('/dashboard');
+}
