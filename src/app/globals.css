@@ -74,3 +74,6 @@
 .client-workspace .panel .field label{color:#b8d79f}
 .client-workspace .panel .field textarea,.client-workspace .panel .field input{color:#f0f1ed}
 .client-workspace .panel .planning-entry p{color:#e3e5df}
+
+/* Brand green for primary workspace headings, neutral body copy */
+.client-workspace .panel h2{color:var(--lime)}
