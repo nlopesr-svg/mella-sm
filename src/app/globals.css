@@ -27,3 +27,23 @@
 .clients-grid .card-link:hover h3{color:var(--lime)}
 .clients-page input.search{color:#d6ded0}
 .clients-page input.search::placeholder{color:#7f8b79}
+
+/* Client workspaces: quiet editorial hierarchy */
+.client-workspace> .row.between:first-child>div>p:first-child{color:#8c9d80;font-size:11px;font-weight:700;letter-spacing:.14em;margin:0 0 8px}
+.client-workspace> .row.between:first-child h1{color:#dce4d7;font-weight:700;letter-spacing:-.045em;margin:0 0 7px}
+.client-workspace> .row.between:first-child h1+p{color:#8e9b88;font-size:13px;margin:0}
+.client-workspace h2{color:#d5dfce;font-weight:650}
+.client-workspace h3,.client-workspace h4{color:#c5d3bd;font-weight:650}
+.client-workspace .panel{background:#1c211b;border-color:#323a2f}
+.client-workspace .panel p,.client-workspace .muted{color:#9aa695}
+.client-workspace .tabs{gap:7px;border-bottom:1px solid #323a2f;padding-bottom:13px}
+.client-workspace .tabs button{background:#1b201a;border-color:#343e30;color:#a4b09d;transition:color .15s,border-color .15s,background .15s}
+.client-workspace .tabs button:hover{color:#d7e7ca;border-color:#728f50}
+.client-workspace .tabs button.active{background:#b9f35b;color:#182014;border-color:#b9f35b;font-weight:700}
+.client-workspace .field label{color:#a8b8a0;font-weight:600;letter-spacing:.02em}
+.client-workspace .field input,.client-workspace .field textarea,.client-workspace .field select{background:#151a14;border-color:#394535;color:#d5dfce}
+.client-workspace .field input:focus,.client-workspace .field textarea:focus,.client-workspace .field select:focus{outline:1px solid #7ea44d;border-color:#7ea44d}
+.client-workspace .button.secondary{color:#becdb5;border-color:#44513e}
+.client-workspace .button.secondary:hover{border-color:#8eb660;color:#dff3d0}
+.client-workspace a:not(.button):hover{color:var(--lime)}
+.client-workspace .divider{border-color:#394435}
