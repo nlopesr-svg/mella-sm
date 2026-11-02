@@ -47,3 +47,20 @@
 .client-workspace .button.secondary:hover{border-color:#8eb660;color:#dff3d0}
 .client-workspace a:not(.button):hover{color:var(--lime)}
 .client-workspace .divider{border-color:#394435}
+
+/* Workspace content typography: distinguish labels, body copy and headings */
+.client-workspace .panel h2{color:#c7e7ad;font-weight:700;letter-spacing:-.025em}
+.client-workspace .panel h3{color:#d6e3cb;font-weight:650}
+.client-workspace .panel h4{color:#bdd1b2}
+.client-workspace .panel strong{color:#b8d79f;font-weight:650}
+.client-workspace .panel p{color:#aab6a3;line-height:1.72}
+.client-workspace .panel small{color:#879781}
+.client-workspace .panel .field label{color:#9cbf85;font-size:12px;letter-spacing:.055em}
+.client-workspace .panel .field textarea,.client-workspace .panel .field input{color:#d6e1d0;line-height:1.6}
+.client-workspace .panel a:not(.button){color:#b9e48c}
+.client-workspace .panel a:not(.button):hover{color:var(--lime)}
+.client-workspace .planning-entry{border-color:#3a4935}
+.client-workspace .folder-button{color:#b7c5b0}
+.client-workspace .folder-button.month{color:#a3b19b}
+.client-workspace .folder-button.selected{background:#303c29;color:var(--lime)}
+.client-workspace .folder-button:hover{background:#273222;color:#d6edc8}
