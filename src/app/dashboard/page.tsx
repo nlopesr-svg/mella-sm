@@ -31,7 +31,7 @@ export default function Dashboard(){
  const listItems=[...tasks].sort((a,b)=>a.due_date.localeCompare(b.due_date));
  const moveWeek=(amount:number)=>setWeekStart(prev=>{const next=new Date(prev);next.setDate(next.getDate()+amount*7);return next});
  const resetToday=()=>{setMonth(new Date(today.getFullYear(),today.getMonth(),1));const d=new Date(today);d.setDate(d.getDate()-(d.getDay()+6)%7);setWeekStart(d)};
- return <AuthGate><div className="row between"><div><h1>{t('dashboard')}</h1></div></div>
+ return <AuthGate>
  {error&&<p className="error">{error}</p>}
  <div className="dashboard-summary"><span>{lang==='pt'?'Clientes ativos':'Active clients'}</span><strong>{clients.length}</strong></div>
  <div className="dashboard-layout"><section className="panel calendar-panel">
