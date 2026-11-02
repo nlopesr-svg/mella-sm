@@ -114,3 +114,17 @@ input[type='checkbox']{accent-color:#b9f35b;cursor:pointer}
 .task-modal-actions{margin-top:20px;gap:9px}
 .task-modal-actions .button{font-size:12px;padding:8px 11px}
 @media(max-width:700px){.clients-page .clients-filter-row input.search{max-width:100%!important;flex:1 1 180px}.task-modal-details>div{gap:10px}}
+
+
+/* Task editor */
+.task-modal{max-height:min(90vh,860px);overflow-y:auto}
+.task-modal-description{white-space:pre-wrap;overflow-wrap:anywhere;color:#d9e0d4;line-height:1.6;margin:0 0 18px;font-size:13px}
+.task-edit-form h2{margin-bottom:17px}
+.task-edit-form .field{margin-bottom:13px}
+.task-edit-form .field label{display:block;color:#b8caa8;font-size:12px;margin-bottom:5px}
+.task-edit-form .field input,.task-edit-form .field select,.task-edit-form .field textarea{width:100%;background:#151a14;color:#f1f4ee;border:1px solid #3a4936;border-radius:8px;padding:9px 10px;font:inherit;font-size:13px}
+.task-edit-form .field textarea{resize:vertical;min-height:85px}
+.task-edit-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.task-priority-high{color:#ffbf8b!important}
+.task-modal-actions{flex-wrap:wrap}
+@media(max-width:480px){.task-edit-grid{grid-template-columns:1fr}}
