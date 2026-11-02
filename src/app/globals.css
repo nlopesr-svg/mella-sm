@@ -146,3 +146,32 @@ input[type='checkbox']{accent-color:#b9f35b;cursor:pointer}
 .research-history-search:focus{border-color:var(--lime)}
 .research-history-search::placeholder{color:#8c9987}
 @media(max-width:560px){.research-history-search{width:100%}}
+
+
+/* Calm, consistent client workspace forms */
+.client-workspace .workspace-fields-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px 20px;margin:22px 0}
+.client-workspace .workspace-fields-grid .field{min-width:0;margin:0}
+.client-workspace .workspace-fields-grid textarea{width:100%;min-height:116px;resize:vertical;line-height:1.55;box-sizing:border-box;padding:12px 13px}
+.client-workspace .workspace-fields-grid label{display:block;margin-bottom:7px;font-size:12px;font-weight:650}
+.client-workspace .platform-selector{margin:19px 0 10px}
+.client-workspace .platform-selector .button{font-size:12px;padding:8px 13px}
+.visual-file-field{margin:6px 0 22px;padding:18px;border:1px solid #364233;border-radius:10px;background:#171d16}
+.visual-file-field>label{font-size:13px;font-weight:700;color:#c7d8bb}
+.visual-file-field>p{font-size:12px;margin:7px 0 13px}
+.visual-upload-button{cursor:pointer;font-size:12px}
+.visual-file-field .row button{max-width:100%;overflow-wrap:anywhere;text-align:left}
+.competitors-page .row.between{gap:16px;align-items:flex-start}
+.competitors-page .row.between h2,.competitors-page .row.between h3{margin-top:0}
+.competitor-form{margin-top:22px;border-top:1px solid var(--line);padding-top:19px;display:grid;gap:14px;max-width:740px}
+.competitor-form .field{margin:0}
+.competitor-form .field label{display:block;font-size:12px;margin-bottom:6px;color:#b8cba9}
+.competitor-form input:not([type=file]),.competitor-form textarea{width:100%;box-sizing:border-box;background:#111610;color:var(--text);border:1px solid #3b4838;border-radius:8px;padding:10px 12px;font:inherit;font-size:13px}
+.competitor-form textarea{resize:vertical;line-height:1.6}
+.competitor-form input[type=file]{font-size:12px;max-width:100%}
+.competitor-form .button{justify-self:start}
+.competitor-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.competitor-card{min-width:0}
+.competitor-card a{display:block;color:var(--lime);font-size:12px;overflow-wrap:anywhere;margin:10px 0}
+.competitor-notes{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6;font-size:13px;color:#d8dfd3}
+.competitor-card .button{font-size:12px}
+@media(max-width:760px){.client-workspace .workspace-fields-grid,.competitor-list{grid-template-columns:1fr}}
