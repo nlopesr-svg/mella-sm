@@ -31,7 +31,7 @@ export default function EditorialPlanning({clientId,clientName}:{clientId:string
   ]);
   for(const x of q){if(x.error)throw new Error(x.error.message)}
   if(!q[0].data)throw new Error('Client not found');
-  const platformNames=new Map((q[4].data||[]).map((p:GenericRow)=>[p.id,p.name]));
+  const platformNames=new Map<string,string>((q[4].data||[]).map((p:GenericRow):[string,string]=>[String(p.id),String(p.name)]));
   const assigned=(q[3].data||[]).map((p:GenericRow)=>String(platformNames.get(p.platform_id)||p.platform_id)).join(', ');
   const strategies=(q[2].data||[]).map((p:GenericRow)=>'### '+String(platformNames.get(p.platform_id)||'Platform')+'\n'+fields(p,hidden)).join('\n\n');
   const competitors=(q[5].data||[]).map((p:GenericRow)=>fields(p,hidden)).join('\n\n');
