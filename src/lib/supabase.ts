@@ -13,5 +13,5 @@ export type Client = { id:string; user_id:string; name:string; industry:string|n
 export type Platform = {id:string; name:string};
 export type Guideline = {id:string; client_id:string; positioning:string; value_proposition:string; audience:string; personality:string; tone:string; preferred_words:string; avoided_words:string; visual_identity:string; colors:string; fonts:string; logos:string; restrictions:string};
 export type Strategy = {id:string;client_id:string;platform_id:string;objectives:string;audience:string;positioning:string;tone:string;content_pillars:string;formats:string;frequency:string;opportunities:string;competitors:string;best_practices:string;dos:string;donts:string;notes:string};
-export const guidelineFields = ['positioning','value_proposition','audience','personality','tone','preferred_words','avoided_words','visual_identity','colors','fonts','logos','restrictions'] as const;
-export const strategyFields = ['objectives','audience','positioning','tone','content_pillars','formats','frequency','opportunities','competitors','best_practices','dos','donts','notes'] as const;
+export const guidelineFields = ['positioning','audience','personality','tone','preferred_words','avoided_words','restrictions'] as const;
+export const strategyFields = ['objectives','audience','positioning','tone','frequency','dos','donts','notes'] as const;
