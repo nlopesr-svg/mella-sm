@@ -128,3 +128,13 @@ input[type='checkbox']{accent-color:#b9f35b;cursor:pointer}
 .task-priority-high{color:#ffbf8b!important}
 .task-modal-actions{flex-wrap:wrap}
 @media(max-width:480px){.task-edit-grid{grid-template-columns:1fr}}
+
+
+/* Manual research notes */
+.research-manual-form{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.research-manual-form h3{font-size:16px;color:var(--text);margin:0 0 16px}
+.research-manual-form .field{margin-bottom:14px}
+.research-manual-form .field label{display:block;margin-bottom:6px;color:#c4d2bc;font-size:12px}
+.research-manual-form .field input,.research-manual-form .field textarea{display:block;width:100%;box-sizing:border-box;background:#111610;color:var(--text);border:1px solid #3c4939;border-radius:8px;padding:10px 12px;font:inherit;font-size:13px}
+.research-manual-form .field textarea{resize:vertical;line-height:1.6}
+.research-manual-form .field small{display:block;margin-top:6px}
