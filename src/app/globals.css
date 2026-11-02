@@ -84,3 +84,6 @@ input[type='checkbox']{accent-color:#b9f35b;cursor:pointer}
 /* Connected resource links: white labels */
 .client-workspace .panel a.button.secondary{color:#f3f3ee}
 .client-workspace .panel a.button.secondary:hover{color:#ffffff}
+
+/* Large client section headings: neutral white as requested */
+.client-workspace .panel h2{color:#f3f3ee}
