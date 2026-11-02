@@ -77,3 +77,6 @@
 
 /* Brand green for primary workspace headings, neutral body copy */
 .client-workspace .panel h2{color:var(--lime)}
+
+/* Mella branded checkboxes */
+input[type='checkbox']{accent-color:#b9f35b;cursor:pointer}
