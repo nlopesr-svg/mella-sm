@@ -12,3 +12,5 @@
 .view-switch{display:inline-flex;border:1px solid var(--line);border-radius:8px;padding:3px;gap:3px;background:var(--bg)}.view-switch button{border:0;background:transparent;color:var(--muted);border-radius:6px;padding:7px 11px;font-weight:650}.view-switch button.active{background:var(--lime);color:#101110}.week-grid .calendar-day{min-height:190px}.deadline-list{max-height:580px;overflow-y:auto}@media(max-width:700px){.view-switch button{padding:6px 8px;font-size:12px}.week-grid .calendar-day{min-height:110px}}
 
 .sidebar-footer>strong{color:var(--lime)}
+
+.sidebar-footer .trash-footer{font-size:13px;margin-bottom:4px;padding:5px 0;opacity:1}.sidebar-footer .trash-footer:hover{color:var(--lime)}.sidebar-footer .trash-footer[href='/trash']{margin-bottom:14px}
