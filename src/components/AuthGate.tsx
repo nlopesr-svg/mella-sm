@@ -1,12 +1,6 @@
 'use client';
-import {useEffect,useState} from 'react';
-import {useRouter} from 'next/navigation';
-import Link from 'next/link';
-import {db} from '@/lib/supabase';
-export default function AuthGate({children}:{children:React.ReactNode}){
- const router=useRouter();const [status,setStatus]=useState<'loading'|'ready'|'error'>('loading');
- useEffect(()=>{let alive=true;try{db().auth.getSession().then(({data})=>{if(!alive)return;if(!data.session)router.replace('/login');else setStatus('ready')});const {data:{subscription}}=db().auth.onAuthStateChange((_event,session)=>{if(!session)router.replace('/login')});return()=>{alive=false;subscription.unsubscribe()}}catch{setStatus('error')}},[router]);
- if(status==='error')return <div className="panel">Supabase is not configured. See README.md.</div>;
- if(status!=='ready')return <p>Checking your session…</p>;
- return <div className="shell"><aside className="side"><div className="brand"><i/>Social Media OS</div><nav className="nav"><Link href="/dashboard">Dashboard</Link><Link href="/clients">Clients</Link><Link href="/settings">Settings</Link></nav><div className="divider"/><button className="button secondary" onClick={async()=>{await db().auth.signOut();router.replace('/login')}}>Sign out</button></aside><main>{children}</main></div>
-}
+import {useEffect,useState} from 'react';import {useRouter,usePathname} from 'next/navigation';import Link from 'next/link';import {db} from '@/lib/supabase';import {useLanguage} from '@/components/LanguageProvider';
+export default function AuthGate({children}:{children:React.ReactNode}){const router=useRouter();const pathname=usePathname();const{t,lang}=useLanguage();const[status,setStatus]=useState<'loading'|'ready'|'error'>('loading');const[name,setName]=useState('');
+useEffect(()=>{let alive=true;try{db().auth.getSession().then(async({data})=>{if(!alive)return;if(!data.session){router.replace('/login');return}setStatus('ready');const {data:profile}=await db().from('profiles').select('display_name').eq('id',data.session.user.id).maybeSingle();if(alive)setName(profile?.display_name||data.session.user.email?.split('@')[0]||'');});const{data:{subscription}}=db().auth.onAuthStateChange((_event,session)=>{if(!session)router.replace('/login')});return()=>{alive=false;subscription.unsubscribe()}}catch{setStatus('error')}},[router,pathname]);
+if(status==='error')return <div className="panel">Supabase is not configured.</div>;if(status!=='ready')return <p>{t('loading')}</p>;
+return <div className="shell"><aside className="side"><div className="brand"><div className="mella-wordmark">mella<span>.</span></div><div><i/>Social Media OS</div></div><nav className="nav">{[['/dashboard','dashboard'],['/clients','clients'],['/trash','trash'],['/settings','settings']].map(([href,key])=><Link className={pathname===href?'current':''} key={href} href={href}>{t(key)}</Link>)}</nav><div className="sidebar-footer"><div className="user-label">{lang==='pt'?'Conectado como':'Signed in as'}</div><strong>{name||'Usuário'}</strong><button className="button secondary signout" onClick={async()=>{await db().auth.signOut();router.replace('/login')}}>{t('signout')}</button></div></aside><main>{children}</main></div>}
