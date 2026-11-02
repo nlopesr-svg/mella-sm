@@ -1,6 +1,5 @@
 'use client';
 import {useEffect,useState} from 'react';
-import Link from 'next/link';
 import AuthGate from '@/components/AuthGate';
 import {db,type Client} from '@/lib/supabase';
 import {useLanguage} from '@/components/LanguageProvider';
@@ -24,7 +23,7 @@ export default function Dashboard(){
  const year=month.getFullYear(),m=month.getMonth(),count=new Date(year,m+1,0).getDate(),offset=(new Date(year,m,1).getDay()+6)%7;
  const monthName=new Intl.DateTimeFormat(lang==='pt'?'pt-BR':'en-US',{month:'long',year:'numeric'}).format(month);
  const visible=deadlines.filter(d=>d.due_date.startsWith(`${year}-${String(m+1).padStart(2,'0')}`));
- return <AuthGate><div className="row between"><div><p>{lang==='pt'?'Seu espaço de trabalho':'Your workspace'}</p><h1>{t('dashboard')}</h1></div><Link className="button secondary" href="/clients">{t('manage')}</Link></div>
+ return <AuthGate><div className="row between"><div><p>{lang==='pt'?'Seu espaço de trabalho':'Your workspace'}</p><h1>{t('dashboard')}</h1></div></div>
  {error&&<p className="error">{error}</p>}
  <div className="dashboard-summary"><span>{lang==='pt'?'Clientes ativos':'Active clients'}</span><strong>{clients.length}</strong></div>
  <div className="dashboard-layout"><section className="panel calendar-panel">
@@ -34,6 +33,5 @@ export default function Dashboard(){
  {Array.from({length:count},(_,i)=>{const key=dateKey(year,m,i+1);const events=visible.filter(d=>d.due_date===key);return <div className={`calendar-day ${key===dateKey(today.getFullYear(),today.getMonth(),today.getDate())?'today':''}`} key={key}><span className="calendar-date">{i+1}</span>{events.map(d=><button title={d.title} onClick={()=>toggle(d)} className={`calendar-event ${d.completed?'done':''}`} key={d.id}>{d.completed?'✓ ':''}{d.title}</button>)}</div>})}</div>
  </section><aside className="stack"><form className="panel" onSubmit={add}><h2>{lang==='pt'?'Adicionar prazo':'Add deadline'}</h2><div className="field"><label>{lang==='pt'?'Entrega / tarefa':'Task'}</label><input required value={title} onChange={e=>setTitle(e.target.value)} placeholder={lang==='pt'?'Ex.: Aprovar planejamento':'e.g. Approve plan'}/></div><div className="field"><label>{lang==='pt'?'Data':'Date'}</label><input required type="date" value={day} onChange={e=>setDay(e.target.value)}/></div><div className="field"><label>{lang==='pt'?'Cliente (opcional)':'Client (optional)'}</label><select value={clientId} onChange={e=>setClientId(e.target.value)}><option value="">{lang==='pt'?'Interno / geral':'Internal / general'}</option>{clients.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}</select></div><button className="button" disabled={busy}>{lang==='pt'?'Adicionar ao calendário':'Add to calendar'}</button></form>
  <div className="panel"><h2>{lang==='pt'?'Prazos do mês':'This month'}</h2>{visible.length===0?<p>{lang==='pt'?'Nenhum prazo cadastrado.':'No deadlines yet.'}</p>:visible.map(d=><div className="deadline-line" key={d.id}><input type="checkbox" checked={d.completed} onChange={()=>toggle(d)}/><div><strong className={d.completed?'done':''}>{d.title}</strong><small>{d.due_date.slice(8,10)}/{d.due_date.slice(5,7)} {clients.find(c=>c.id===d.client_id)?.name||''}</small></div><button className="text-button danger" onClick={()=>remove(d.id)} aria-label="Delete">×</button></div>)}</div></aside></div>
- <h2>{lang==='pt'?'Clientes ativos':'Active clients'}</h2><div className="grid">{clients.map(c=><Link className="panel card-link" href={`/clients/${c.id}`} key={c.id}><h3>{c.name}</h3><p>{c.industry||t('overview')}</p></Link>)}</div>
  </AuthGate>
 }
