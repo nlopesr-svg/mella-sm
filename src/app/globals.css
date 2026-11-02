@@ -80,3 +80,7 @@
 
 /* Mella branded checkboxes */
 input[type='checkbox']{accent-color:#b9f35b;cursor:pointer}
+
+/* Connected resource links: white labels */
+.client-workspace .panel a.button.secondary{color:#f3f3ee}
+.client-workspace .panel a.button.secondary:hover{color:#ffffff}
