@@ -138,3 +138,11 @@ input[type='checkbox']{accent-color:#b9f35b;cursor:pointer}
 .research-manual-form .field input,.research-manual-form .field textarea{display:block;width:100%;box-sizing:border-box;background:#111610;color:var(--text);border:1px solid #3c4939;border-radius:8px;padding:10px 12px;font:inherit;font-size:13px}
 .research-manual-form .field textarea{resize:vertical;line-height:1.6}
 .research-manual-form .field small{display:block;margin-top:6px}
+
+
+.research-history-heading{gap:12px;flex-wrap:wrap;align-items:center}
+.research-history-heading h2{margin:0}
+.research-history-search{width:min(100%,230px);min-height:34px;padding:7px 11px;border:1px solid #354234;border-radius:8px;background:#111610;color:var(--text);font-size:12px;outline:none}
+.research-history-search:focus{border-color:var(--lime)}
+.research-history-search::placeholder{color:#8c9987}
+@media(max-width:560px){.research-history-search{width:100%}}
