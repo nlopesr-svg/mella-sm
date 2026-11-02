@@ -8,3 +8,5 @@
 
 /* Match only the sidebar to the Mella logo charcoal */
 .side{background:#232323}
+
+.view-switch{display:inline-flex;border:1px solid var(--line);border-radius:8px;padding:3px;gap:3px;background:var(--bg)}.view-switch button{border:0;background:transparent;color:var(--muted);border-radius:6px;padding:7px 11px;font-weight:650}.view-switch button.active{background:var(--lime);color:#101110}.week-grid .calendar-day{min-height:190px}.deadline-list{max-height:580px;overflow-y:auto}@media(max-width:700px){.view-switch button{padding:6px 8px;font-size:12px}.week-grid .calendar-day{min-height:110px}}
