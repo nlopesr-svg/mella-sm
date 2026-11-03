@@ -14,7 +14,7 @@ export default function Dashboard(){
  const [error,setError]=useState('');const[busy,setBusy]=useState(false);const[selectedTask,setSelectedTask]=useState<Task|null>(null);const[editingTask,setEditingTask]=useState(false);const[taskDraft,setTaskDraft]=useState({title:'',due_date:'',client_id:'',description:''});const[description,setDescription]=useState('');
  async function refresh(){
   const [c,d]=await Promise.all([db().from('clients').select('*').is('deleted_at',null).eq('archived',false).order('name'),db().from('internal_deadlines').select('*').order('due_date')]);
-  if(c.error)setError(c.error.message);else setClients((c.data||[]) as Client[]);
+  if(c.error)setError(c.error.message);else setClients(((c.data||[]) as Client[]).sort((a,b)=>a.name.localeCompare(b.name,'en',{sensitivity:'base'})));
   if(d.error)setError(d.error.message);else setTasks((d.data||[]) as Task[]);
  }
  useEffect(()=>{void refresh()},[]);
