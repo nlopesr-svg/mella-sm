@@ -1,7 +1,7 @@
 'use client';
 import {useState} from 'react';import {db,type Client} from '@/lib/supabase';import {useLanguage} from '@/components/LanguageProvider';
 const fields=['name','industry','description','website','notes'] as const;
-const socialPlatforms=['Instagram','TikTok','LinkedIn','Facebook','YouTube','Pinterest','X'] as const;
+const socialPlatforms=['Instagram','TikTok','LinkedIn','Facebook','YouTube'] as const;
 function readSocial(raw:string){try{const parsed=JSON.parse(raw||'{}');return parsed&&typeof parsed==='object'&&!Array.isArray(parsed)?parsed:{} as Record<string,string>}catch{return {} as Record<string,string>}}
 const pt:Record<string,string>={name:'Nome',industry:'Segmento',description:'Descrição',website:'Site',contacts:'Contatos',links:'Links das redes sociais',notes:'Observações'};
 export default function ClientEditor({initial,onSaved}:{initial?:Partial<Client>;onSaved:()=>void}){const{lang,t}=useLanguage();const [form,setForm]=useState<Record<string,string>>(Object.fromEntries(fields.map(k=>[k,String(initial?.[k]??'')])));const[social,setSocial]=useState<Record<string,string>>(()=>readSocial(String(initial?.links||'')));const[error,setError]=useState('');const[busy,setBusy]=useState(false);
